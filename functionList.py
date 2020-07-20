@@ -2,7 +2,7 @@
 # coding: utf-8
 import logging as lg
 
-class setStringToCompare:
+class listTransformation:
     """
     A class used to represent a collection of query strings and a collection of input strings
 
@@ -22,79 +22,46 @@ class setStringToCompare:
     """
 
 	
-    def __init__(self, queries, strings):
+    def __init__(self, inputList):
         """
         a constructor to initialize the attributes of the class setStringToCompare.
 
         : queries : array[str]  an array of query strings
         : strings : array[str]  an array of strings to search
         """
-        self.queries = queries
-        self.strings = strings
+        self.inputList = inputList
 
+def left_rotation(d,l):
+    n = len(self.inputList)
+    k = n - d
+    b = []
+    for i in range(0,n):
+        b.append(l[i-k])      
+    return b
 
     
-    def matchingStringsToVec(self):
-        """ 
-        Customize function matchingStringsToVec : Compare queries and strings and return  an integer array of occurence.
-        
-        :return: an array of integers representing the frequency of occurrence of each query string in strings.
+    def left_rotation(d,self):
+        """
+        Given an array of n integers and a number, d, perform  left rotations on the array
+        A left rotation operation on an array of size n shifts each of the array's elements  1 unit to the left. 
+        For example, if  2-left rotations are performed on array [1, 2, 3, 4, 5], then the array would become [3, 4, 5, 1, 2].
+
+        :return: shifted array
         :rtype: array[int]
         
         :Example:
-        >>> import sparseArray
-        >>> a  = setStringToCompare(['blue', 'red',  'yellow','green'],['blue', 'red', 'blue', 'yellow', 'blue', 'red', 'yellow', 'blue', 'red', 'red', 'blue'])
-        >>> print(a.matchingStringsToVec())
-        [5, 4, 2, 0]
+        >>> n = 5
+        >>> d = 4
+        >>> a = [i for i in range(1,n+1)]   
+        >>> left_rotation(4,a)
+        >>> [5, 1, 2, 3, 4]
         """
 
-        len_string = len(self.strings)
-        len_queries = len(self.queries)
-
-        try:       
-            countList = []
-            for _ in self.queries:
-                 countList.append(self.strings.count(_))
-
-        except UnboundLocalError:
-            if (len_string <= 0  and  len_string >= 1000 )  or (len_queries <= 0  and  len_queries >= 1000 ) :
-               lg.critical("The length of queries or string")
-            else:
-                lg.critical("Please correct the set of strings to compare")
-        else:
-            return countList
-
-
-
-    def matchingStringsToDic(self):
-        """ 
-        Customize function matchingStringsToDic : Compare queries and strings and return a dictionary of occurence where 
-            - key[i] : queries[i]  ith element of queries
-            - value[i] : the frequency of occurrence of queries[i] in strings
-    
-        :return: an array of integers representing the frequency of occurrence of each query string in strings.
-        :rtype: dict
-
-        :Example:
-        >>> import sparseArray
-        >>> a  = setStringToCompare(['blue', 'red',  'yellow','green'],['blue', 'red', 'blue', 'yellow', 'blue', 'red', 'yellow', 'blue', 'red', 'red', 'blue'])
-        >>> print(a.matchingStringsToDic())
-        {'yellow': 2, 'green': 0, 'blue': 5, 'red': 4}
-
-        """    
-        len_string = len(self.strings)
-        len_queries = len(self.queries)
-
-        try:       
-               resfinal = dict((x,self.strings.count(x)) for x in set(self.queries))
-        except UnboundLocalError as e:
-            if (len_string <= 0  and  len_string >= 1000 )  or (len_queries <= 0  and  len_queries >= 1000 ) :
-               lg.critical("The length of queries or string")
-            else:
-                lg.critical("Please correct the set of strings to compare")
-        else:
-            return resfinal
-
-
+        n = len(self.inputList)
+        k = n - d
+        b = []
+        for i in range(0,n):
+            b.append(l[i-k])      
+        return b
 
 
