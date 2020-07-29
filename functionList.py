@@ -87,7 +87,28 @@ class listTransformation:
 
 
 
-
+    def decryptPassword(self):
+        l = [char for char in self]
+        m = len([letter for letter in l if letter.isupper()])
+        k = len(l)
+        w = []
+        b = []
+        for i in list(range(k)): 
+            print(i)
+            print(l[i])        
+            if i< k -2 and l[i].islower() and l[i+1].isupper():
+               w.append(l[i+1]) 
+               w.append(l[i])           
+            elif l[i].isupper() and l[i-1].islower():
+               w.append('*')          
+            elif l[i].isnumeric():
+               w.append(0)
+               b.append(l[i]) 
+            else:
+               w.append(l[i])      
+        b.reverse() 
+        d = b + w
+        return d
 
 
 
