@@ -33,6 +33,22 @@ class listTransformation:
 
 
 
+    def reverseArray(a):
+        """
+        Given an array, A, of N integers, print each element in reverse order as a single line of space-separated integers.
+
+        :return: reverse order as a single line of space-separated integers.
+        :rtype: array[int]
+        
+        :Example:
+        >>> a = [1,2,100,3]
+        >>> reverseArray(a)
+        >>> [3, 100, 2, 1]  
+        """        
+        n = len(a)
+        return [a[n-1-i] for  i in range(0,n)]
+
+
     
     def left_rotation(d,self):
         """
@@ -174,3 +190,18 @@ class listTransformation:
                 print(Matrix)
                 a.append(sum(sum(Matrix,[])) -  Matrix[1][0] -  Matrix[1][2])
         return max(a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
