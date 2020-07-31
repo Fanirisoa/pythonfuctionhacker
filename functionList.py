@@ -75,31 +75,6 @@ class listTransformation:
         return b
 
 
-    
-    def arrayManipulation(d,self):
-        """
-        Given an array of n integers and a number, d, perform  left rotations on the array
-        A left rotation operation on an array of size n shifts each of the array's elements  1 unit to the left. 
-        For example, if  2-left rotations are performed on array [1, 2, 3, 4, 5], then the array would become [3, 4, 5, 1, 2].
-
-        :return: shifted array
-        :rtype: array[int]
-        
-        :Example:
-        >>> n = 5
-        >>> d = 4
-        >>> a = [i for i in range(1,n+1)]   
-        >>> left_rotation(4,a)
-        >>> [5, 1, 2, 3, 4]
-        """
-        queries = self.queries
-        a = np.array([0]*d)
-        k = len(self.queries)
-        for i in range(0,k): 
-            a[int(self.queries[i][0])-1:int(self.queries[i][1])] += int(self.queries[i][2]) 
-        return max(a)
-
-
 
 
 
@@ -182,7 +157,6 @@ class listTransformation:
         >>> 28
         """
 
-
         a = []
         for  c in list(range(0,4)):
             for  l in list(range(0,4)):
@@ -194,9 +168,99 @@ class listTransformation:
 
 
 
+    def arrayManipulation(n, queries):
+        """
+        Starting with a 1-indexed array of zeros and a list of operations, for each operation add a value to each of the array element between two given indices, inclusive.
+        Once all operations have been performed, return the maximum value in your array.
+
+        :return:  max of array
+        :rtype:  int
+
+        For example, the length of your array of zeros n = 10. Your list of queries is as follows:
+
+            a b k
+            1 5 3
+            4 8 7
+            6 9 1
+
+        Add the values of k between the indices a and b inclusive:
+
+        index->  1 2 3  4  5 6 7 8 9 10
+                [0,0,0, 0, 0,0,0,0,0, 0]
+                [3,3,3, 3, 3,0,0,0,0, 0]
+                [3,3,3,10,10,7,7,7,0, 0]
+                [3,3,3,10,10,8,8,8,1, 0]
+
+        The largest value is 10  after all operations are performed.        
+
+        
+        :Example:
+        >>> queries = [[1,2,100],[2,5,100],[3,4,100]]
+        >>> a = 5
+        >>> arrayManipulationNumpy(5,a1) 
+        >>> 200
+        """
+       
+        array = [0] * (n + 1)
+        
+        for query in queries: 
+            a = query[0] - 1
+            b = query[1]
+            k = query[2]
+            array[a] += k
+            array[b] -= k
+            
+        max_value = 0
+        running_count = 0
+        for i in array:
+            running_count += i
+            if running_count > max_value:
+                max_value = running_count
+                
+        return max_value
 
 
 
+
+    
+    def arrayManipulationNumpy(d,self):
+        """
+        Starting with a 1-indexed array of zeros and a list of operations, for each operation add a value to each of the array element between two given indices, inclusive.
+        Once all operations have been performed, return the maximum value in your array.
+
+        :return:  max of array
+        :rtype:  int
+
+        For example, the length of your array of zeros n = 10. Your list of queries is as follows:
+
+            a b k
+            1 5 3
+            4 8 7
+            6 9 1
+
+        Add the values of k between the indices a and b inclusive:
+
+        index->  1 2 3  4  5 6 7 8 9 10
+                [0,0,0, 0, 0,0,0,0,0, 0]
+                [3,3,3, 3, 3,0,0,0,0, 0]
+                [3,3,3,10,10,7,7,7,0, 0]
+                [3,3,3,10,10,8,8,8,1, 0]
+
+        The largest value is 10  after all operations are performed.        
+
+        
+        :Example:
+        >>> queries = [[1,2,100],[2,5,100],[3,4,100]]
+        >>> a = 5
+        >>> arrayManipulationNumpy(5,a1) 
+        >>> 200
+        """
+        queries = self.queries
+        a = np.array([0]*d)
+        k = len(self.queries)
+        for i in range(0,k): 
+            a[int(self.queries[i][0])-1:int(self.queries[i][1])] += int(self.queries[i][2]) 
+        return max(a)
 
 
 
