@@ -266,6 +266,16 @@ class listTransformation:
 
 
 
-
+    def solve(arr):
+        queries = [s for s in [[j,[i for i, x in enumerate(arr) if x == j]] for j in set(arr)] if len(s[1]) > 1]
+        step2 = [[queries[i][0],[1 if  j>queries[i][0] else 0 for j in arr[queries[i][1][k]+1:queries[i][1][n]]]] for i in range(len(queries))  for k in range(len(queries[i][1])) for n in list(range(k+1,len(queries[i][1])))]
+        running_count = 0
+        for i in range(len(step2)): 
+            if 1 not in step2[i][1]:
+                running_count += 1
+            else:
+                running_count += 0
+                
+        return 2*running_count  
 
 
