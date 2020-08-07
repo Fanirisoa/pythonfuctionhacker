@@ -33,6 +33,26 @@ class listTransformation:
 
 
 
+    def simpleArraySum(arr):
+        """
+        Given an array of integers, find the sum of its elements.
+
+        :return: Print the sum of the array's elements as a single integer.
+        :rtype: int
+        
+        :Example:
+        >>> a = [1,2,3,4,10,11]
+        >>> simpleArraySum(a)
+        >>> 31
+        """   
+        somme = 0
+        for i in list(range(len(arr))):
+            somme += arr[i]
+        return somme
+
+
+
+
     def reverseArray(a):
         """
         Given an array, A, of N integers, print each element in reverse order as a single line of space-separated integers.
@@ -266,16 +286,44 @@ class listTransformation:
 
 
 
-    def solve(arr):
+    def SkyscrapersJim(arr):
         queries = [s for s in [[j,[i for i, x in enumerate(arr) if x == j]] for j in set(arr)] if len(s[1]) > 1]
-        step2 = [[queries[i][0],[1 if  j>queries[i][0] else 0 for j in arr[queries[i][1][k]+1:queries[i][1][n]]]] for i in range(len(queries))  for k in range(len(queries[i][1])) for n in list(range(k+1,len(queries[i][1])))]
-        running_count = 0
-        for i in range(len(step2)): 
-            if 1 not in step2[i][1]:
-                running_count += 1
+        res = [[queries[i][0],queries[i][1][k+1],[1 if  j>queries[i][0] else 0 for j in arr[queries[i][1][k]:queries[i][1][k+1]]]] for i in range(len(queries))  for k in list(range(len(queries[i][1]) - 1))]
+        step2 = [tuple for x in [j for j in set(arr)]  for tuple in res if tuple[0] == x] 
+        k = len(step2)
+        running_add= [0]*k
+        for i in range(k): 
+            if  step2[i][0] == step2[i-1][0]    and 1 not in step2[i][2] :             
+                running_add[i] = running_add[i-1] + 1
+            elif step2[i][0] == step2[i-1][0]   and 1 not in step2[i][2] :             
+                running_add[i] = 1
+            elif 1 not in step2[i][2] and step2[i][1] != step2[i-1][1]:                     
+                running_add[i] = 1    
+            else :
+                running_add[i] = 0
+               
+        return 2*sum(running_add)
+
+
+    def JimSkyscrapers(arr):
+        arr.append(2**64)
+        idx, routes = 0, 0
+        stack, m = [], {}
+        while idx < len(arr):
+            if stack == [] or arr[idx] <= stack[-1]:
+                stack.append(arr[idx])
+                if arr[idx] in m:
+                    m[arr[idx]] += 1
+                else:
+                    m[arr[idx]] = 1
+                idx += 1
             else:
-                running_count += 0
-                
-        return 2*running_count  
+                top = stack.pop()
+                if top in m and top < arr[idx]:
+                    routes += m[top] * (m[top] - 1) 
+                    del m[top]
+        return(routes)
+
+
 
 
