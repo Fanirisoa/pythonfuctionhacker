@@ -50,7 +50,33 @@ class listTransformation:
             somme += arr[i]
         return somme
 
+    def compareTriplets(a, b):
+        """
+        Given a and b, determine their respective comparison points. The task is to find their comparison points by comparing a[0] with b[0], a[1] with b[1], and a[2] with b[2].
 
+            - If a[i] > b[i], then Alice is awarded 1 point.
+            - If a[i] < b[i], then Bob is awarded 1 point.
+            - If a[i] = b[i], then neither person receives a point.
+
+        Comparison points is the total points a person earned.
+
+        :return: a's score is in the first position, and b's score is in the second.
+        :rtype: array[int]
+
+        :Example:
+        >>> a = [1, 2, 3]
+        >>> b = [3, 2, 1]
+        >>> compareTriplets(a, b)
+        >>> [1, 1]       
+        """   
+        queries = [[1,0] if a[i] > b[i]  else  [0,1] if a[i] < b[i] else [0,0]  for i in range(len(a))]
+        val_a = 0
+        val_b = 0
+        for i in list(range(len(a))):
+            val_a += queries[i][0]
+            val_b += queries[i][1]
+        return [val_a,val_b]    
+    
 
 
     def reverseArray(a):
