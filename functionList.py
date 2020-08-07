@@ -78,6 +78,24 @@ class listTransformation:
         return [val_a,val_b]    
     
 
+    def diagonalDifference(arr):
+        """
+        Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+        :return: the absolute difference between the sums of the matrix's two diagonals as a single integer.
+        :rtype: int
+        
+        :Example:
+        >>> a = [[11, 2, 4],[4, 5, 6],[10, 8, -12]]
+        >>> diagonalDifference(a)
+        >>> 15  
+        """  
+        n= len(arr)
+        left_diag = sum(arr[i][-i-1] for i in range(n))
+        rigth_diag = sum(arr[i][i] for i in range(n))
+        return abs(rigth_diag-left_diag)
+
+
 
     def reverseArray(a):
         """
