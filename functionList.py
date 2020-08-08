@@ -370,4 +370,27 @@ class listTransformation:
 
 
 
+    def timeConversion(str1):
+        """
+        Given a time in -hour AM/PM format, convert it to military (24-hour) time.
+        Note: Midnight is 12:00:00AM on a 12-hour clock, and 00:00:00 on a 24-hour clock. Noon is 12:00:00PM on a 12-hour clock, and 12:00:00 on a 24-hour clock.
+
+        :return:  a string representing time in  24-hour format
+        :rtype:  String
+        
+        :Example:
+        >>> time_string = 07:05:45PM
+        >>> timeConversion(time_string) 
+        >>> 19:05:45
+        """
+        if str1[-2:] == "AM" and str1[:2] == "12": 
+            return "00" + str1[2:-2]     
+        elif str1[-2:] == "AM": 
+            return str1[:-2] 
+
+        elif str1[-2:] == "PM" and str1[:2] == "12": 
+            return str1[:-2]        
+        else: 
+            return str(int(str1[:2]) + 12) + str1[2:8]        
+
 
