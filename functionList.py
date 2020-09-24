@@ -394,3 +394,16 @@ class listTransformation:
             return str(int(str1[:2]) + 12) + str1[2:8]        
 
 
+
+
+    def kangaroo(x1, v1, x2, v2):
+        num = x2 - x1
+        den = v1 - v2
+        if den == 0 and  num != 0:
+            return 'NO'
+        elif num / den >=1 and  (num / den).is_integer():
+            return 'YES'
+        else:
+            return 'NO'
+
+
