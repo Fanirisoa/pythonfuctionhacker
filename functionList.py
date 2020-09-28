@@ -423,4 +423,24 @@ class listTransformation:
         else:
             return 'NO'
 
+    def Newfunction(x1, v1, x2, v2):
+        """
+        Function to figure out a way to get two kangaroos at the same location at the same time .
+            x1, v1: integers, starting position and jump distance for kangaroo 1
+            x2, v2: integers, starting position and jump distance for kangaroo 2
+
+        :return:  a string YES or NO
+        :rtype:  String
+        
+        :Example:
+        >>> kangaroo(0,2,5,3)
+        >>> 'NO'
+        >>> kangaroo(0,3,4,2)
+        >>> 'YES'
+        >>> kangaroo(0,2,5,3)
+        >>> 'NO'
+        """
+
+
+
 
