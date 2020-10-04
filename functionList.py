@@ -440,11 +440,15 @@ class listTransformation:
         >>> kangaroo(0,2,5,3)
         >>> 'NO'
         """
+       def chunks(lst, n):
+            for i in range(0, len(lst), n):
+                yield list(lst[i:i + n])
+
         seq = list(range(1,10))
         perm = permutations(seq)
         perm_list = [list(chunks(P,3)) for P in perm if sum(P[0:3]) == 15 and sum(P[3:6]) == 15 and sum(P[0::3]) == 15 and sum(P[1::3]) == 15 and P[0] + P[4] + P[8] == 15 and (P[2] + P[4] + P[6] == 15)]
         perm_list_square = [lst for lst in perm_list]
-        return min([sum([abs(a[i][j] - b[i][j])  for i in list(range(0,3)) for j in list(range(0,3))]) for b in perm_list])
+        return min([sum([abs(s[i][j] - b[i][j])  for i in list(range(0,3)) for j in list(range(0,3))]) for b in perm_list])
 
 
 
