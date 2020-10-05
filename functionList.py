@@ -465,3 +465,18 @@ class listTransformation:
 
 
 
+
+
+
+    def extraLongFactorials(n):
+        if(n==1):
+            result = 1
+        else:
+            result = n*extraLongFactorials(n-1)
+        return result
+
+
+
+
+
+
