@@ -491,5 +491,43 @@ class listTransformation:
 
 
 
+    def getTotalX(a, b):
+         """
+        You will be given two arrays of integers and asked to determine all integers that satisfy the following two conditions:
+
+            1- The elements of the first array are all factors of the integer being considered
+            2- The integer being considered is a factor of all elements of the second array
+
+        :return:   the number of integers that are considered to be between a and b.
+        :rtype:  INTEGER
+        
+        :Example:
+        >>> a= [2, 4]
+        >>> b= [16, 32 ,96]
+        >>> getTotalX(a, b)
+
+        >>> a= [3 ,4]
+        >>> b= [24, 48]
+        >>> getTotalX(a, b)         
+        """        
+        max_a = max(a)
+        min_b = min(b)+1
+        Z = list(range(max_a,min_b))  
+        W = [x for x in Z for i in list(range(len(a))) if x%a[i] ==0]
+        Q = list(set([y for y in W if len([x for x in W if x == y]) == len(a)]))
+        D = [s for s in  Q  for i in list(range(len(b))) if b[i]%s ==0]
+        return len([a for a in Q if len([x for x in D if x == a]) == len(b)]) 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
