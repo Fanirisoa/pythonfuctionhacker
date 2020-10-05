@@ -425,12 +425,10 @@ class listTransformation:
 
     def formingMagicSquare(s):
         """
-        Function to figure out a way to get two kangaroos at the same location at the same time .
-            x1, v1: integers, starting position and jump distance for kangaroo 1
-            x2, v2: integers, starting position and jump distance for kangaroo 2
+        We define a magic square to be an n x n matrix of distinct positive integers from 1 to n2 where the sum of any row, column, or diagonal of length  is always equal to the same number: the magic constant.
 
-        :return:  a string YES or NO
-        :rtype:  String
+        :return:  the minimal total cost of converting the input square to a magic square
+        :rtype:  Int
         
         :Example:
         >>> kangaroo(0,2,5,3)
