@@ -469,7 +469,20 @@ class listTransformation:
 
 
     def extraLongFactorials(n):
-        if(n==1):
+        """
+        To compute the factoriel of n 
+            n! = n x (n-1) x (n-2) x ... x 2 x 1
+
+        :return:  The facoriel of n
+        :rtype:  Int
+        
+        :Example:
+        >>> extraLongFactorials(2)
+        >>> 2
+        >>> extraLongFactorials(25)
+        >>> 15511210043330985984000000           
+        """       
+        if(n==0):
             result = 1
         else:
             result = n*extraLongFactorials(n-1)
