@@ -446,12 +446,12 @@ class listTransformation:
         8 3 4
         1 5 9
         6 7 2
-        
-        >>> 'NO'
-        >>> kangaroo(0,3,4,2)
-        >>> 'YES'
-        >>> kangaroo(0,2,5,3)
-        >>> 'NO'
+
+ 
+        This took three replacements at a cost of |5 - 8|+ |8 - 9| + |4 - 7|= 7
+
+        >>> formingMagicSquare(s)
+        >>> 7
         """
        def chunks(lst, n):
             for i in range(0, len(lst), n):
