@@ -522,7 +522,21 @@ class listTransformation:
 
 
 
-
+def climbingLeaderboard(ranked, player):
+    def rankingLeaderboard(ranked,k):   
+        ranked.append(k)
+        listA= sorted(list(set(ranked)), reverse=True)
+        listB=list(range(1,len(listA)+1))
+        listCouple =  list(zip(listA, listB))
+        rankVal = [t[1] for t in listCouple if t[0] == k]
+        return rankVal 
+    
+    res = []
+    for k in player:
+        r = rankingLeaderboard(ranked,k)
+        ranked.append(k)
+        res.extend(r)
+    return res
 
 
 
