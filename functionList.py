@@ -522,6 +522,24 @@ class listTransformation:
 
 
 def climbingLeaderboard(ranked, player):
+    """
+    You will be given two arrays of integers and asked to determine all integers that satisfy the following two conditions:
+
+    1- The elements of the first array are all factors of the integer being considered
+    2- The integer being considered is a factor of all elements of the second array
+
+    :return:   the number of integers that are considered to be between a and b.
+    :rtype:  INTEGER
+
+    :Example:
+    >>> ranked= [100, 100, 50, 40, 40, 20, 10]
+    >>> player= [5,25, 50, 120]
+    >>> climbingLeaderboard(ranked, player)
+
+    >>> a= [3 ,4]
+    >>> b= [24, 48]
+    >>> getTotalX(a, b)         
+    """  
     listA = sorted(list(set(ranked)), reverse=True)
     res = []
     for k in player: 
