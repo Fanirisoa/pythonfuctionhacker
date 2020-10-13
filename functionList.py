@@ -527,12 +527,11 @@ def climbingLeaderboard(ranked, player):
         - The player with the highest score is ranked number 1 on the leaderboard.
         - Players who have equal scores receive the same ranking number, and the next player(s) receive the immediately following ranking number.
 
-    1- The elements of the first array are all factors of the integer being considered
-    2- The integer being considered is a factor of all elements of the second array
-
-    :return:   
+    :input:   
         - The existing leaderboard, "ranked" , is in descending order.
         - The player's scores, "player", are in ascending order.
+
+    :return:  List of the updates ranking
 
     :rtype:  Liste of INTEGER
 
@@ -545,7 +544,6 @@ def climbingLeaderboard(ranked, player):
     >>> player= [50, 65, 77, 90, 102]
     >>> climbingLeaderboard(ranked, player)
     >>> [6, 5, 4, 2, 1]
-
     """  
     listA = sorted(list(set(ranked)), reverse=True)
     res = []
@@ -558,4 +556,34 @@ def climbingLeaderboard(ranked, player):
 
 
 def circularArrayRotation(a, k, queries):
+    """
+    For each array, perform a number of right circular rotations and return the value of the element at a given index.
+
+     :input:     
+        a: an array of integers to rotate
+        k: an integer, the rotation count
+        queries: an array of integers, the indices to report
+
+    :return:   For each query, print the value of the element at index  of the rotated array on a new line.
+
+
+    :rtype:  Liste of INTEGER
+
+    :Example:
+    >>> ranked= [100, 100, 50, 40, 40, 20, 10]
+    >>> player= [5,25, 50, 120]
+    >>> climbingLeaderboard(ranked, player)
+    >>> [6, 4, 2, 1]
+    >>> ranked= [100, 90, 90, 80, 75, 60]
+    >>> player= [50, 65, 77, 90, 102]
+    >>> climbingLeaderboard(ranked, player)
+    >>> [6, 5, 4, 2, 1]
+    """ 
+
+
+
+
+
+
+
 
