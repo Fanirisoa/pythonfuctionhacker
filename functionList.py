@@ -570,20 +570,14 @@ def circularArrayRotation(a, k, queries):
     :rtype:  Liste of INTEGER
 
     :Example:
-    >>> ranked= [100, 100, 50, 40, 40, 20, 10]
-    >>> player= [5,25, 50, 120]
-    >>> climbingLeaderboard(ranked, player)
-    >>> [6, 4, 2, 1]
-    >>> ranked= [100, 90, 90, 80, 75, 60]
-    >>> player= [50, 65, 77, 90, 102]
-    >>> climbingLeaderboard(ranked, player)
-    >>> [6, 5, 4, 2, 1]
+    >>> a= [3,4,5,4]
+    >>> k= 2
+    >>> queries= [0,1,2,3]
+    >>> circularArrayRotation(a, k, queries)
+    >>> [5, 4, 3, 4]
     """ 
-
-
-
-
-
-
+    n = len(a)
+    rot = [l for l in {l: v for l, v in sorted({(a[i],i):(i+k)%n for i in list(range(n))}.items(), key=lambda item: item[1])}]
+    return([rot[i][0] for i in queries])
 
 
