@@ -588,15 +588,17 @@ def breakingRecords(scores):
         k: an integer, the rotation count
         queries: an array of integers, the indices to report
 
-    :return:   For each query, print the value of the element at index  of the rotated array on a new line.
-    :rtype:  Liste of INTEGER
+    :return:   Numbers of times the best (highest) score increased and the worst (lowest) score decreased.
+    :rtype:  Liste of INTEGER (two space-seperated integers)
 
     :Example:
-    >>> a= [3,4,5,4]
-    >>> k= 2
-    >>> queries= [0,1,2,3]
-    >>> circularArrayRotation(a, k, queries)
-    >>> [5, 4, 3, 4]
+    >>> scores = [3,4,21,36,10,28,35,5,24,42]
+    >>> breakingRecords(scores)
+    >>> [4, 0]
+    >>>  
+    >>> scores = [10, 5, 20, 20, 4, 5 ,2 ,25 ,1]
+    >>> breakingRecords(score2)
+    >>> [2, 4]
     """ 
     n = len(scores)
     def highestRecords(a,n):
