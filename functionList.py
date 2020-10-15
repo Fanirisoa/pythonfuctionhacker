@@ -581,12 +581,10 @@ def circularArrayRotation(a, k, queries):
 
 def breakingRecords(scores):
     """
-    For each array, perform a number of right circular rotations and return the value of the element at a given index.
+    Given the scores for a season, find the number of times He breaks her records for most and least points scored during the season.
 
      :input:     
-        a: an array of integers to rotate
-        k: an integer, the rotation count
-        queries: an array of integers, the indices to report
+        scores: contains n space-separated integers describing the respective values of scores(0), scores(1), scores(2), ..., scores(n)
 
     :return:   Numbers of times the best (highest) score increased and the worst (lowest) score decreased.
     :rtype:  Liste of INTEGER (two space-seperated integers)
@@ -628,4 +626,51 @@ def breakingRecords(scores):
             brokeLowest += 1
             break
     return [brokeHighest, brokeLowest]
+
+
+
+
+
+
+
+def birthday(s, d, m):
+    """
+    Given the scores for a season, find the number of times He breaks her records for most and least points scored during the season.
+
+     :input:     
+        scores: contains n space-separated integers describing the respective values of scores(0), scores(1), scores(2), ..., scores(n)
+
+    :return:   Numbers of times the best (highest) score increased and the worst (lowest) score decreased.
+    :rtype:  Liste of INTEGER (two space-seperated integers)
+
+    :Example:
+    >>> scores = [3,4,21,36,10,28,35,5,24,42]
+    >>> breakingRecords(scores)
+    >>> [4, 0]
+    >>>  
+    >>> scores = [10, 5, 20, 20, 4, 5 ,2 ,25 ,1]
+    >>> breakingRecords(score2)
+    >>> [2, 4]
+    """ 
+    l = m
+    k = d
+    n = len(s)
+    if(n==1):
+        result = 1
+    else:
+        b = [sum(S) for S in [s[i:i+l] for i in  list(range(n-2))]] 
+        nb = 0
+        for i in list(range(len(b))): 
+            while b[i] == k:
+                nb += 1
+                break
+        result = nb
+    return result
+
+
+
+
+
+
+
 
