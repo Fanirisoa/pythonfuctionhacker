@@ -565,8 +565,6 @@ def circularArrayRotation(a, k, queries):
         queries: an array of integers, the indices to report
 
     :return:   For each query, print the value of the element at index  of the rotated array on a new line.
-
-
     :rtype:  Liste of INTEGER
 
     :Example:
@@ -580,4 +578,52 @@ def circularArrayRotation(a, k, queries):
     rot = [l for l in {l: v for l, v in sorted({(a[i],i):(i+k)%n for i in list(range(n))}.items(), key=lambda item: item[1])}]
     return([rot[i][0] for i in queries])
 
+
+def breakingRecords(scores):
+    """
+    For each array, perform a number of right circular rotations and return the value of the element at a given index.
+
+     :input:     
+        a: an array of integers to rotate
+        k: an integer, the rotation count
+        queries: an array of integers, the indices to report
+
+    :return:   For each query, print the value of the element at index  of the rotated array on a new line.
+    :rtype:  Liste of INTEGER
+
+    :Example:
+    >>> a= [3,4,5,4]
+    >>> k= 2
+    >>> queries= [0,1,2,3]
+    >>> circularArrayRotation(a, k, queries)
+    >>> [5, 4, 3, 4]
+    """ 
+    n = len(scores)
+    def highestRecords(a,n):
+        highest = [a[i] for i in  list(range(n))]
+        for i in list(range(1,n)): 
+            while highest[i] < highest[i-1] and i < n:
+                highest[i] = highest[i-1]
+                break 
+        return highest
+    def LowestRecords(a,n):
+        Lowest = [a[i] for i in  list(range(n))]
+        for i in list(range(1,n)): 
+            while Lowest[i] > Lowest[i-1] and i < n:
+                Lowest[i] = Lowest[i-1]
+                break 
+        return Lowest
+    a_1 = highestRecords(scores,n)
+    brokeHighest = 0
+    for i in list(range(n)): 
+        while a_1[i] > a_1[i-1] and i < n:
+            brokeHighest += 1
+            break
+    b_1 = LowestRecords(scores,n)
+    brokeLowest = 0
+    for i in list(range(n)): 
+        while b_1[i] < b_1[i-1] and i < n:
+            brokeLowest += 1
+            break
+    return [brokeHighest, brokeLowest]
 
