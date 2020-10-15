@@ -638,19 +638,17 @@ def birthday(s, d, m):
     Given the scores for a season, find the number of times He breaks her records for most and least points scored during the season.
 
      :input:     
-        scores: contains n space-separated integers describing the respective values of scores(0), scores(1), scores(2), ..., scores(n)
+        s: an array of integers, the numbers on each of the squares of chocolate
+        d: an integer, Ron's birth day
+        m: an integer, Ron's birth month
 
-    :return:   Numbers of times the best (highest) score increased and the worst (lowest) score decreased.
-    :rtype:  Liste of INTEGER (two space-seperated integers)
+    :return:   an integer denoting the number of ways Lily can divide the chocolate bar.
+    :rtype: INTEGER 
 
     :Example:
-    >>> scores = [3,4,21,36,10,28,35,5,24,42]
-    >>> breakingRecords(scores)
-    >>> [4, 0]
-    >>>  
-    >>> scores = [10, 5, 20, 20, 4, 5 ,2 ,25 ,1]
-    >>> breakingRecords(score2)
-    >>> [2, 4]
+    >>> Q =[1, 2 ,1 ,3 ,2] 
+    >>> birthday(Q, 3, 2)
+    >>> 2
     """ 
     l = m
     k = d
