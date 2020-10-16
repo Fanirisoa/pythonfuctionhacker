@@ -666,6 +666,23 @@ def birthday(s, d, m):
     return result
 
 
+def absolutePermutation(n, k):
+    a = list(range(1,n+1))
+    iterNb = 0
+    for t in list(range(n+1)): 
+        while [abs(rotate(a, t)[i] - i) for i in list(range(n))] != [k] * n:
+            iterNb += 1
+        break
+
+
+
+
+
+
+
+
+
+
 
 
 
