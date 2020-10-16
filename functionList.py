@@ -2,6 +2,8 @@
 # coding: utf-8
 import logging as lg
 
+from itertools import permutations
+
 class listTransformation:
     """
     A class used to represent a list as input
