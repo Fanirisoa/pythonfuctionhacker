@@ -679,6 +679,12 @@ def absolutePermutation(n, k):
 
 
 
+def saveThePrisoner(n, m, s):
+    iterNb = 0
+    for t in list(range(n+1)): 
+        while ([abs(rotate(a, t)[i] - (i+1)) for i in list(range(n))] == [k] * n):
+            iterNb = t
+            break
 
 
 
