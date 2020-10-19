@@ -688,8 +688,7 @@ def saveThePrisoner(n, m, s):
 
 def nonDivisibleSubset(k, s):
     c = [c for c in [[j for j in s if  (j+i)%k != 0 and j != i]+[i] for i in s ] if len(c) > 1] 
-    return list(set.intersection(*map(set,c)))
-
+    return len(list(set.intersection(*map(set,c))))
 
 
 
