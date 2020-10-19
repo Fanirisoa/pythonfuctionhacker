@@ -98,6 +98,9 @@ class listTransformation:
         return abs(rigth_diag-left_diag)
 
 
+    def rotate(l, n):
+        return l[n:] + l[:n]
+
 
     def reverseArray(a):
         """
@@ -684,7 +687,7 @@ def saveThePrisoner(n, m, s):
 
 
 
-
+def nonDivisibleSubset(k, s):
 
 
 
