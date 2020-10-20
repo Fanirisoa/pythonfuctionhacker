@@ -687,8 +687,17 @@ def saveThePrisoner(n, m, s):
 
 
 def nonDivisibleSubset(k, s):
-    c = [c for c in [[j for j in s if  (j+i)%k != 0 and j != i]+[i] for i in s ] if len(c) > 1] 
-    return len(list(set.intersection(*map(set,c))))
+    d = [c for c in [[sorted([j for j in s if  (j+i)%k == 0 and j != i]),i,len([j for j in s if  (j+i)%k == 0 and j != i])] for i in s ] if len(c[0]) > 1] 
+    rankDel = sorted([[c[1], len(c[0])] for c in d], key=lambda valRank: valRank[1], reverse=True)
+    
+    for l in rankDel:
+        c = [n for n in s if n != l[0]]
+        print(l[0])
+        while len([w for w in [(c[i] + c[j])%k  for i in list(range(len(c)))  for j in list(range(len(c))) if i != j and i > j] if w == 0]) >= 1:
+            print(len([w for w in [(c[i] + c[j])%k  for i in list(range(len(c)))  for j in list(range(len(c))) if i != j and i > j] if w == 0]))
+            s.remove(l[0])
+            break   
+    return len(s)
 
 
 
