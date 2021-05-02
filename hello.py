@@ -45,9 +45,10 @@ def count_characters(string):
 
     Return a dictionary of character counts
     '''
+	string_split = [char for char in string]
+	string_distinct = list(set(string_split))
+	return  {string_distinct[i]: string_split.count(string_distinct[i]) for i in range(len(string_distinct))}
 
-	string_split = split(word)
-	{lst1[i]: lst2[i] for i in range(len(lst1))}
 
-
+print("Output question 4: ", count_characters('abbcccddddeeeeeffffffggggggghhhhhhhh'))
 
