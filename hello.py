@@ -1,5 +1,5 @@
 import sys
-
+import numpy as np
 
 def get_cubed(lst):
   '''
@@ -42,13 +42,55 @@ def count_characters(string):
     '''
     INPUT: STRING
     OUTPUT: DICT (with counts of each character in input string)
-
     Return a dictionary of character counts
     '''
-	string_split = [char for char in string]
-	string_distinct = list(set(string_split))
-	return  {string_distinct[i]: string_split.count(string_distinct[i]) for i in range(len(string_distinct))}
-
+    string_split=[char for char in string]
+    string_distinct=sorted(list(set(string_split)), key=str.lower)
+    dic_list= {string_distinct[i]: string_split.count(string_distinct[i]) for i in range(len(string_distinct))}
+    dic_ord = sorted(dic_list.items(), key=lambda x: x[0])
+    return  dic_ord
 
 print("Output question 4: ", count_characters('abbcccddddeeeeeffffffggggggghhhhhhhh'))
+
+
+def calculate_l1_norm(v):
+    '''
+    INPUT: LIST or ARRAY (containing numeric elements)
+    OUTPUT: FLOAT (L1 norm of v)
+    calculate and return a norm for a given vector
+    '''
+    return  sum([abs(x) for x in  v])
+
+print("Output question 5: ", calculate_l1_norm([2.0, -3.5, 5.1]))
+
+
+def get_vector_sum(vectorLower, vectorUpper):
+    '''
+    INPUT: vector lower and upper bounds
+    OUTPUT: calculated value for vector sum
+    (1) create a vector ranging from 1:150
+    (2) transform the vector into a matrix with 10 rows and 15 columns
+    (3) print the sum for the 10 rows
+    '''
+    n = 10
+    vector_int = list(range(vectorLower, vectorUpper))
+ print(vector_int)
+   
+    split_vec = [vector_int[i:i + n] for i in range(0, len(vector_int), n)] 
+ print(split_vec)
+
+    return  matrix(split_vec)    
+
+
+
+print("Output question 6: ", get_vector_sum(1,21))
+
+
+
+
+
+
+
+
+
 
