@@ -1,5 +1,6 @@
 import sys
 import numpy as np
+import scipy.stats as stats
 
 def get_cubed(lst):
   '''
@@ -73,24 +74,70 @@ def get_vector_sum(vectorLower, vectorUpper):
     (3) print the sum for the 10 rows
     '''
     n = 10
-    vector_int = list(range(vectorLower, vectorUpper))
- print(vector_int)
-   
+    vector_int = list(range(vectorLower, vectorUpper))  
     split_vec = [vector_int[i:i + n] for i in range(0, len(vector_int), n)] 
- print(split_vec)
 
-    return  matrix(split_vec)    
+    matrix_used = np.matrix(split_vec)  
+    list_res = np.sum(matrix_used,axis=0).tolist()
 
-
-
-print("Output question 6: ", get_vector_sum(1,21))
+    return  list_res[0]
 
 
 
-
+print("Output question 6: ", get_vector_sum(1,151))
 
 
 
 
+def geometric_distribution(p,k):
+    '''
+    INPUT: probability of success and trials
+    OUTPUT: determined probability
+    '''
+
+    return ((1-p)^(k-1))*(p)
+
+
+
+def poisson_distribution(mu,k):
+    '''
+    INPUT: parameter of the poisson distribution and number of accidents
+    OUTPUT: determined probability
+    '''
+    return np.exp(-mu) * mu**k / np.math.factorial(k)
+
+
+
+def gaussian_distribution(loc_val, scale_val, cdf_val):
+    '''
+    INPUT: loc (mean of the distribution), scale (standard deviation of the distribution), and cdf values
+    OUTPUT: determined probability
+    '''
+    return stats.norm(loc_val, scale_val).cdf(cdf_val)
+
+
+print("Output question 9: ", gaussian_distribution(0,1,0))
+
+
+
+def matrix_multiplication(A,B):
+  '''
+  INPUT: LIST (of length n) OF LIST (of length n) OF INTEGERS
+  LIST (of length n) OF LIST (of length n) OF INTEGERS
+  OUTPUT: LIST OF LIST OF INTEGERS
+  (storing the product of a matrix multiplication operation)
+  Return the matrix which is the product of matrix A and matrix B
+  where A and B will be (a) integer valued (b) square matrices
+  (c) of size n-by-n (d) encoded as lists of lists, e.g.
+  A = [[2, 3, 4], [6, 4, 2], [-1, 2, 0]] corresponds to the matrix
+  | 2 3 4 |
+  | 6 4 2 |
+  |-1 2 0 |
+  You may not use numpy. Write your solution in straight python
+  '''
+  return [[sum(a*b for a,b in zip(A_row,B_col)) for B_col in zip(*B)] for A_row in A]
+
+
+print("Output question 10: ", matrix_multiplication([[12,7,3],[4 ,5,6],[7 ,8,9]],[[5,8,1],[6,7,3],[4,5,9]]))
 
 
