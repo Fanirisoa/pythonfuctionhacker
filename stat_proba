@@ -1,0 +1,189 @@
+def get_cubed(lst):
+  '''
+  INPUT: LIST (containing numeric elements)
+  OUTPUT: LIST (cubed value of each even number in originals list)
+  return a list containing each element cubed
+  '''
+  return [x*x*x for x in lst]
+
+
+
+def get_squared_evens(lst):
+    '''
+    INPUT: LIST (containing numeric elements)
+    OUTPUT: LIST (squared value of each even number in originals list)
+    return squared evens in a list
+    '''
+    return [x*x for x in lst  if x % 2 == 0]
+
+
+
+
+
+heap
+varchar
+
+
+
+def make_dict(lst1,lst2):
+    '''
+    INPUT: LST1, LST2
+    OUTPUT: DICT (LST 1 are the keys and LST2 are the values)
+    Given equal length lists create a dictionary where the first list is the keys
+    '''
+    return {lst1[i]: lst2[i] for i in range(len(lst1))}
+
+
+
+
+
+
+set
+list
+
+
+
+Base Python automatically parallelizes processing across cores when multiple cores are available
+
+
+
+
+def letter_count(s):
+    d = {}
+    for i in s:
+        d[i] = d.get(i,0)+1
+    return d
+
+
+
+import numpy as np
+
+
+def calculate_l1_norm(v):
+    '''
+    INPUT: LIST or ARRAY (containing numeric elements)
+    OUTPUT: FLOAT (L1 norm of v)
+    calculate and return a norm for a given vector
+    '''
+    return  sum([abs(x) for x in  v])
+
+
+
+
+import numpy as np
+
+def get_vector_sum(vectorLower, vectorUpper):
+    '''
+    INPUT: vector lower and upper bounds
+    OUTPUT: calculated value for vector sum
+    (1) create a vector ranging from 1:150
+    (2) transform the vector into a matrix with 10 rows and 15 columns
+    (3) print the sum for the 10 rows
+    '''
+    n = 15
+    vector_int = list(range(vectorLower, vectorUpper))  
+    split_vec = [vector_int[i:i + n] for i in range(0, len(vector_int), n)] 
+
+    matrix_used = np.matrix(split_vec)  
+    list_res = np.sum(matrix_used,axis=0).tolist()
+
+    return  list_res[0]
+
+
+
+
+
+Negative numbers and positive numbers less than 25
+
+
+Numbers between 100-200 and numbers between 201-300
+
+
+
+
+import scipy.stats as stats
+
+def geometric_distribution(p,k):
+  '''
+  INPUT: probability of success and trials
+  OUTPUT: determined probability
+  '''
+  return stats.geom.pmf(x, p)
+
+
+
+
+import scipy.stats as stats
+
+
+def geometric_distribution(p,k):
+  '''
+  INPUT: probability of success and trials
+  OUTPUT: determined probability
+  '''
+  return stats.geom.pmf(k, p)
+
+
+
+
+
+import scipy.stats as stats
+import numpy as np
+
+
+
+def poisson_distribution(mu,k):
+    '''
+    INPUT: parameter of the poisson distribution and number of accidents
+    OUTPUT: determined probability
+    '''
+    return stats.poisson.pmf(k, mu)
+
+
+
+import scipy.stats as stats
+
+def gaussian_distribution(loc_val, scale_val, cdf_val):
+    '''
+    INPUT: loc (mean of the distribution), scale (standard deviation of the distribution), and cdf values
+    OUTPUT: determined probability
+    '''
+    return stats.norm.pdf(cdf_val, loc_val, scale_val)
+
+ 
+
+
+
+def matrix_multiplication(A,B):
+  '''
+  INPUT: LIST (of length n) OF LIST (of length n) OF INTEGERS
+  LIST (of length n) OF LIST (of length n) OF INTEGERS
+  OUTPUT: LIST OF LIST OF INTEGERS
+  (storing the product of a matrix multiplication operation)
+  Return the matrix which is the product of matrix A and matrix B
+  where A and B will be (a) integer valued (b) square matrices
+  (c) of size n-by-n (d) encoded as lists of lists, e.g.
+  A = [[2, 3, 4], [6, 4, 2], [-1, 2, 0]] corresponds to the matrix
+  | 2 3 4 |
+  | 6 4 2 |
+  |-1 2 0 |
+  You may not use numpy. Write your solution in straight python
+  '''
+  return [[sum(a*b for a,b in zip(A_row,B_col)) for B_col in zip(*B)] for A_row in A]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
